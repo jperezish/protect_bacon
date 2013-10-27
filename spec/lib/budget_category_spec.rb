@@ -4,10 +4,6 @@ require "spec_helper"
 describe BudgetCategory do
   let(:food_budget) { BudgetCategory.new("Food") }
 
-  it "has a name" do
-    food_budget.name. should eq("Food")
-  end
-
   describe "#balance" do
     it "has a 0 balance when created" do
       food_budget.balance.should == 0
