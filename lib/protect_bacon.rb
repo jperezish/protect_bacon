@@ -42,11 +42,14 @@ class Budgeter
 end
 
 class Budget
-  def name
-    "Awesome Budget"
-  end
+  attr_reader :name, :description, :categories
 
-  def add_new_category(name)
-    budget_category = BudgetCategory.new(name)
+  def initialize(args={})
+    @name         = args[:name]
+    @description  = args[:description]
+    @categories   = args[:categories]
   end
+end
+
+class Categories
 end
