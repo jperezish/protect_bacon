@@ -1,3 +1,3 @@
-CAPTURE_CASH_AMOUNT = Transform /^\$(\d+)$/ do |digits|
-  digits.to_i
+CAPTURE_CASH_AMOUNT = Transform /^\d+\.?\d*$/ do |number|
+  number.to_f
 end
