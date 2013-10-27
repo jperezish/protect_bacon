@@ -1,4 +1,4 @@
-class BudgetCategory
+class Category
   attr_reader :balance, :amount_spent, :budget, :name
 
   def initialize(name)

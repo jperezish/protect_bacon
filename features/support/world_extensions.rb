@@ -4,12 +4,12 @@ module KnowsTheDomain
     @my_budget ||= Budget.new
   end
 
-  def my_budget_category
-    @my_budget_category ||= BudgetCategory.new("Food")
+  def my_category
+    @my_category ||= Category.new("Food")
   end
 
   def my_budgeter
-    @my_budgeter ||= Budgeter.new(my_budget_category)
+    @my_budgeter ||= Budgeter.new(my_category)
   end
 
   def withdraw(amount, options)
