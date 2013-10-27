@@ -1,11 +1,11 @@
 class Category
   attr_reader :balance, :amount_spent, :budget, :name
 
-  def initialize(name)
-    @balance = 0
+  def initialize(args)
+    @balance      = args[:balance]
     @amount_spent = 0
-    @budget = 0
-    @name = name
+    @budget       = args[:budget]
+    @name         = args[:name]
   end
 
   def deposit(amount)

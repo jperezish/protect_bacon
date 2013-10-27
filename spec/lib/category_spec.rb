@@ -2,7 +2,9 @@ require_relative "../../lib/protect_bacon"
 require "spec_helper"
 
 describe Category do
-  let(:food_budget) { Category.new("Food") }
+  let(:food_budget) { Category.new(name: "Food",
+                                    budget: 0,
+                                    balance: 0) }
 
   describe "#balance" do
     it "has a 0 balance when created" do
