@@ -3,11 +3,14 @@ require "spec_helper"
 
 describe Budget do
   before do
-    Categories.any_instance.stub(:category => "Food")
+    @food  = Category.any_instance.stub(:name => "Food")
+    @gas   = Category.any_instance.stub(:name => "Gas")
+    @rent  = Category.any_instance.stub(:name => "Rent")
+    Categories.any_instance.stub(categories: "List")
   end
   args = {:name => "My Budget",
           :description => "My awesome budget!",
-          :categories => Categories.new }
+          :categories => Categories.new([@food, @gas, @rent]) }
   let(:my_budget) { Budget.new(args) }
 
   it "has a name" do

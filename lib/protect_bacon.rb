@@ -49,7 +49,31 @@ class Budget
     @description  = args[:description]
     @categories   = args[:categories]
   end
+
+  def categories
+    
+  end
 end
 
 class Categories
+  attr_reader :categories
+
+  def initialize(categories)
+    @categories = categories
+  end
 end
+
+
+require "sinatra"
+get "/" do
+  "Welcome to Protect Bacon"
+end
+
+
+
+
+
+
+
+
+

@@ -1,11 +1,16 @@
 module KnowsTheDomain
 
   def my_budget
-    @my_budget ||= Budget.new
+    args = {:name => "Awesome Budget",
+            :description => "My awesome budget!",
+            :categories => Categories.new([@food, @gas, @rent]) }
+    @my_budget ||= Budget.new(args)
   end
 
   def my_category
-    @my_category ||= Category.new("Food")
+    @my_category ||= Category.new(name: "Food",
+                                    budget: 0,
+                                    balance: 0)
   end
 
   def my_budgeter
