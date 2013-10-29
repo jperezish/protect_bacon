@@ -42,7 +42,7 @@ class Budgeter
 end
 
 class Budget
-  attr_reader :name, :description, :categories
+  attr_reader :name, :description
 
   def initialize(args={})
     @name         = args[:name]
@@ -50,8 +50,8 @@ class Budget
     @categories   = args[:categories]
   end
 
-  def categories
-    
+  def get_categories
+    @categories.categories
   end
 end
 

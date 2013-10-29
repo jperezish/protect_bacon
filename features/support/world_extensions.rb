@@ -1,4 +1,4 @@
-module KnowsTheDomain
+module KnowsTheUserInterface
 
   def my_budget
     args = {:name => "Awesome Budget",
@@ -23,4 +23,4 @@ module KnowsTheDomain
   end
 end
 
-World(KnowsTheDomain)
+World(KnowsTheUserInterface)
