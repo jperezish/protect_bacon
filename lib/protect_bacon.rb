@@ -30,6 +30,9 @@ class Category
 end
 
 class Budgeter
+  def initialize(register)
+    @register = register
+  end
 
   def initialize(budget_category)
     @budget_category = budget_category
@@ -38,6 +41,12 @@ class Budgeter
   def add_expense(amount)
     @budget_category.add_expense(amount)
     @budget_category.update_amount_spent(amount)
+  end
+end
+
+class Register
+  def contents
+    @contents or raise("I'm empty!")
   end
 end
 
@@ -80,8 +89,9 @@ get "/" do
   }
 end
 
+set :register, Register.new
 post "/add_expense" do
-  budgeter = Budgeter.new()
+  budgeter = Budgeter.new(settings.register)
   fail "I don't know how to add an expense. My bad."
 end
 
