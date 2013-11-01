@@ -66,10 +66,24 @@ end
 
 require "sinatra"
 get "/" do
-  "Welcome to Protect Bacon"
+  "Welcome to Protect Bacon!"
+  %{
+    <html>
+      <body>
+        <form action="/withdraw" method="post">
+          <label for="Amount">Amount</label>
+          <input type="text" id="amount" name="amount">
+          <button type="submit">Submit</button>
+        </form>
+      </body>
+    </html>
+  }
 end
 
-
+post "/withdraw" do
+  budgeter = Budgeter.new()
+  fail "I don't know how to add an expense. My bad."
+end
 
 
 

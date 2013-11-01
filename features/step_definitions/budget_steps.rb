@@ -18,5 +18,6 @@ Then(/^I should have a gas category$/) do
 end
 
 Then(/^I should see "(.*?)"$/) do |message|
+  pending
   my_budget.messages.should eq(message)
 end

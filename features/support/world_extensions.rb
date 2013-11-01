@@ -1,4 +1,13 @@
 module KnowsTheUserInterface
+  class UserInterface
+    include Capybara::DSL
+
+    def withdraw(amount)
+      visit "/"
+      fill_in "amount", :with => amount
+      click_button "Submit"
+    end
+  end
 
   def my_budget
     args = {:name => "Awesome Budget",
@@ -14,7 +23,7 @@ module KnowsTheUserInterface
   end
 
   def my_budgeter
-    @my_budgeter ||= Budgeter.new(my_category)
+    @my_budgeter ||= UserInterface.new
   end
 
   def withdraw(amount, options)
