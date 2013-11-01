@@ -35,8 +35,8 @@ class Budgeter
     @budget_category = budget_category
   end
 
-  def withdraw(amount)
-    @budget_category.withdraw(amount)
+  def add_expense(amount)
+    @budget_category.add_expense(amount)
     @budget_category.update_amount_spent(amount)
   end
 end
@@ -70,7 +70,7 @@ get "/" do
   %{
     <html>
       <body>
-        <form action="/withdraw" method="post">
+        <form action="/add_expense" method="post">
           <label for="Amount">Amount</label>
           <input type="text" id="amount" name="amount">
           <button type="submit">Submit</button>
@@ -80,7 +80,7 @@ get "/" do
   }
 end
 
-post "/withdraw" do
+post "/add_expense" do
   budgeter = Budgeter.new()
   fail "I don't know how to add an expense. My bad."
 end
