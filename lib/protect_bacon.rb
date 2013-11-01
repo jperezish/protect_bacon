@@ -12,7 +12,7 @@ class Category
     @balance += amount
   end
 
-  def withdraw(amount)
+  def add_expense(amount)
     if @balance >= amount
       @balance -= amount
     else

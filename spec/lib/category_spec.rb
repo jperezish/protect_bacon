@@ -11,7 +11,7 @@ describe Category do
       food_budget.balance.should == 0
     end
     it "cannot be a negative number" do
-      food_budget.withdraw(100)
+      food_budget.add_expense(100)
 
       food_budget.balance.should == 0
     end
@@ -32,10 +32,10 @@ describe Category do
     end
   end
 
-  describe "#withdraw" do
+  describe "#add_expense" do
     it "decreases the balance" do
       food_budget.deposit(500)
-      food_budget.withdraw(230)
+      food_budget.add_expense(230)
 
       food_budget.balance.should == 270
     end
