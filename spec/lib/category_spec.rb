@@ -8,12 +8,12 @@ describe Category do
 
   describe "#balance" do
     it "has a 0 balance when created" do
-      food_budget.balance.should == 0
+      expect(food_budget.balance).to eq(0)
     end
     it "cannot be a negative number" do
       food_budget.add_expense(100)
 
-      food_budget.balance.should == 0
+      expect(food_budget.balance).to eq(0)
     end
   end
 
@@ -28,7 +28,7 @@ describe Category do
       food_budget.deposit(10)
       food_budget.deposit(1.55)
 
-      food_budget.balance.should == 11.55
+      expect(food_budget.balance).to eq(11.55)
     end
   end
 
@@ -37,7 +37,7 @@ describe Category do
       food_budget.deposit(500)
       food_budget.add_expense(230)
 
-      food_budget.balance.should == 270
+      expect(food_budget.balance).to eq(270)
     end
   end
 
@@ -45,7 +45,7 @@ describe Category do
     it "tracks the amount spent" do
       food_budget.update_amount_spent(40)
 
-      food_budget.amount_spent.should == 40
+      expect(food_budget.amount_spent).to eq(40)
     end
   end
 
@@ -53,7 +53,7 @@ describe Category do
     it "sets the budget" do
       food_budget.set_budget(300)
 
-      food_budget.budget.should == 300
+      expect(food_budget.budget).to eq(300)
     end
   end
 end

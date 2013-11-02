@@ -2,7 +2,8 @@ module KnowsTheUserInterface
   class UserInterface
     include Capybara::DSL
 
-    def add_expense(amount)
+    def add_expense(category, amount)
+      Sinatra::Application.category = category
       visit "/"
       fill_in "amount", :with => amount
       click_button "Submit"
@@ -17,7 +18,7 @@ module KnowsTheUserInterface
   end
 
   def register
-    @register ||= Register.new
+    Sinatra::Application.register
   end
 
   def my_category
@@ -32,7 +33,7 @@ module KnowsTheUserInterface
 
   def add_expense(amount, options)
     category = options[:from]
-    my_budgeter.add_expense(amount)
+    my_budgeter.add_expense(category, amount)
   end
 end
 

@@ -34,10 +34,6 @@ class Budgeter
     @register = register
   end
 
-  def initialize(budget_category)
-    @budget_category = budget_category
-  end
-
   def add_expense(amount)
     @budget_category.add_expense(amount)
     @budget_category.update_amount_spent(amount)
@@ -90,9 +86,13 @@ get "/" do
 end
 
 set :register, Register.new
+set :category do
+  fail "category has not been set"
+end
+
 post "/add_expense" do
   budgeter = Budgeter.new(settings.register)
-  fail "I don't know how to add an expense. My bad."
+  budgeter.add_expense(settings.category, params[:amount].to_i)
 end
 
 
