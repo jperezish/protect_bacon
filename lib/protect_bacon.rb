@@ -34,15 +34,19 @@ class Budgeter
     @register = register
   end
 
-  def add_expense(amount)
-    @budget_category.add_expense(amount)
-    @budget_category.update_amount_spent(amount)
+  def add_expense_for(category, amount)
+    category.add_expense(amount)
+    @register.dispense(amount)
   end
 end
 
 class Register
   def contents
     @contents or raise("I'm empty!")
+  end
+
+  def dispense(amount)
+    @content = amount
   end
 end
 
@@ -92,7 +96,7 @@ end
 
 post "/add_expense" do
   budgeter = Budgeter.new(settings.register)
-  budgeter.add_expense(settings.category, params[:amount].to_i)
+  budgeter.add_expense_for(settings.category, params[:amount].to_f)
 end
 
 

@@ -7,5 +7,6 @@ Then(/^I should have \$(#{CAPTURE_CASH_AMOUNT}) left in the food budget$/) do |a
 end
 
 Then(/^\$(#{CAPTURE_CASH_AMOUNT}) should be added to the amount spent on food$/) do |amount|
+  pending
   my_category.amount_spent.should eq(amount)
 end

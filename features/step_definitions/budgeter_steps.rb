@@ -1,3 +1,3 @@
 When(/^I spend \$(#{CAPTURE_CASH_AMOUNT}) on food$/) do |amount|
-  add_expense amount, :from => my_category
+  my_budgeter.add_expense_for(my_category, amount)
 end
